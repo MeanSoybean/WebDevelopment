@@ -1,0 +1,32 @@
+enmet snippet html:5
+
+install nodejs, Chocolatey as well for convenience
+in Command Line: npm install --global http-server
+run http-server in Command Line (not PowerShell)
+
+Opening a html file is not the same as requesting a file through http GET
+
+
+Tags:
+html (attributes lang)
+head
+   meta (attributes charset)
+body (background="Image Path")
+    div
+        more html tags
+    regular content
+    p
+    b
+    i
+    br
+    html entities like &nbsp; and &lt;
+    heading tags h1 to h6
+    img (src, alt) // no closing tag
+    a (href; relative path, web URL, #navigate in page)
+    audio controls tag
+
+    emmet div>ul>li*5>{Item$$} syntax
+    
+    table
+        tr
+         td or th (rowspan, colspan, align, padding, spacing)
