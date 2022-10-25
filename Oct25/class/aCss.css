@@ -1,0 +1,40 @@
+a {
+    display: block;
+    margin: 1em 8px;
+}
+
+.link1:hover {
+    color: darkblue;
+}
+.link1:visited {
+    color: orange;
+}
+
+.link2 {
+    text-decoration: none;
+}
+
+.link2:hover {
+    text-decoration: underline;
+    background-color: blanchedalmond;
+    border: 1px solid orange;
+}
+
+.link3 {
+    color: green;
+    text-decoration: none;
+}
+
+.link3:hover {
+    position: relative;
+    text-decoration: underline;
+    top: -5px;
+}
+
+.link4 {
+    width: 100px;
+    padding: auto 2em;
+    border: 1px solid gray;
+    text-decoration: none;
+    background-image: linear-gradient(white,white,gray);
+}

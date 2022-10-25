@@ -1,0 +1,49 @@
+ways to use CSS
+inline: use the attribute style="property:property-value;otherproperty:property-value;"
+embedded: use the <style> tag in the <head> tag
+external: use the <link rel="stylesheet" href="./webstylesheet.css">
+
+for other media, such as print, you can define multiple style sheets
+<link rel="stylesheet" media="print" href="./printsheet.css">
+
+CSS format
+selector {
+	property:propertyvalue;
+	property2:value2; /* comment, optional trailing semicolon */
+}
+
+CSS selector
+
+#id_sel // selects element with id="id_sel"
+p // selects all <p> elements
+.class1 // selects element with class="class1"
+.class1 .class2
+.class1.class2
+.class1, .class2
+
+CSS Properties
+for tables:
+border-spacing: 0px to have no space between cells
+border-collapse: separate vs border-collapse: collapse
+text-align
+vertical-align
+
+
+display: do i take up space, and how
+	display: none // it's as if i don't exist
+	display: block // full width taken up, auto newline before and after element, much like divs, headings, and paragraphs
+	display: inline // just enough to fit the content
+	
+visibility
+	visibility: hidden // i take up space, but am not visible
+
+
+
+Box Model
+	Margin
+	Border
+	Padding
+	Content
+
+You might say the space between the border and the content is the PADDING OF THE BORDER or the MARGIN OF THE CONTENT
+Question: how do they interact? do they take whichever is larger? or do they add up?
