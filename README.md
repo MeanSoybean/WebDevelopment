@@ -9,3 +9,7 @@ Or install Node.js and then run this in your command line to globally install [h
 npm install --global http-server
 ```
 You can run http-server from whichever root folder you want.
+
+http-server will by default open the HTTP server for your website at port 8080, so you can open any web browser and type in the address bar ```localhost:8080``` and it should open any ```index.html``` or ```default.html``` file.
+
+I don't know how VSCode's Live Server works yet.
