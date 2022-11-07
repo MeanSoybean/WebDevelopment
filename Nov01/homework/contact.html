@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./contact.css" rel="stylesheet">
+</head>
+<body>
+    <div class="top">
+        <img src="./logo.png" alt="Logo">
+        <ul class="menu">
+            <li>HOME</li>
+            <li>JOBS</li>
+            <li>CONTACT</li>
+        </ul>
+    </div>
+    <header>
+        GENERAL INQUIRIES
+    </header>
+    <form id="contactform">
+        <label class="required" for="name">NAME</label><br>
+        <input type="text" id="name" name="name" autofocus required><br>
+
+        <label class="required" for="email">EMAIL</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="enquiry">NATURE OF ENQUIRY</label><br>
+        <select name="enquiry" id="enquiry" form="contactform">
+          <option selected="selected" value="general">general</option>
+          <option value="bababooey">bababooey</option>
+          <option value="specific">specific</option>
+          <option value="web development">web development</option>
+        </select><br>
+
+        <label for="message">MESSAGE</label><br>
+        <textarea name="message" id="message" form="contactform"></textarea><br>
+        
+        <label class="required" for="arithmetic">3 + 4 = ?</label><br>
+        <input type="number" id="arithmetic" name="arithmetic" required><br>
+
+        <input type="Submit" value="SUBMIT">
+    </form>
+
+    <footer>
+        200 Online Users - 24 Visited Users
+    </footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+/*Q1*/
+#pond {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*Q2*/
+#pond {
+    display: flex;
+    justify-content: center;
+}
+
+/*Q3*/
+#pond {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*Q4*/
+#pond {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Q5*/
+#pond {
+    display: flex;
+    align-items: flex-end;
+}
+
+/*Q6*/
+#pond {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Q7*/
+#pond {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+
+/*Q8*/
+#pond {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/*Q9*/
+#pond {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Q10*/
+#pond {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+/*Q11*/
+#pond {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/*Q12*/
+#pond {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+/*Q13*/
+#pond {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/*Q14*/
+#pond {
+    display: flex;
+}
+
+.yellow {
+    order: 1;
+}
+
+/*Q15*/
+#pond {
+    display: flex;
+}
+
+.yellow {
+    order: -3;
+}
+
+/*Q16*/
+#pond {
+    display: flex;
+    align-items: flex-start;
+}
+
+.yellow {
+    align-self: flex-end;
+}
+
+/*Q17*/
+#pond {
+    display: flex;
+    align-items: flex-start;
+}
+  
+.yellow {
+    order: 1;
+    align-self: flex-end;
+}
+
+/*Q18*/
+#pond {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*Q19*/
+#pond {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/*Q20*/
+#pond {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+/*Q21*/
+#pond {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+/*Q22*/
+#pond {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+/*Q23*/
+#pond {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column-reverse;
+}
+
+/*Q24*/
+#pond {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: column-reverse;
+    align-content: space-between;
+    justify-content: center;
+}

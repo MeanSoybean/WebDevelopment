@@ -1,0 +1,64 @@
+body {
+    width: 90%;
+    margin: auto;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu>li {
+    margin-right: 5%;
+    display: inline-block;
+    height: fit-content;
+    min-width: 110px;
+    border-bottom: solid;
+    padding: 0%;
+    font-weight: bold;
+    text-align: start;
+}
+
+.menu>li:hover {
+    color: orangered;
+}
+
+input, select, textarea {
+    width: 100%;
+}
+
+label[for="arithmetic"] {
+    display: block;
+    padding-bottom: 1px;
+}
+
+.required::after {
+    content: "required";
+    color: orangered;
+    float: right;
+}
+
+input[type="submit"] {
+    color: white;
+    background-color: black;
+    align-content: center;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+footer {
+    text-align: center;
+}
