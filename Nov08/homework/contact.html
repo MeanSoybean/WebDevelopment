@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./contact.css" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="top">
@@ -20,10 +24,16 @@
         GENERAL INQUIRIES
     </header>
     <form id="contactform">
-        <label class="required" for="name">NAME</label><br>
+        <div class="requiredDiv">
+            <label for="name" id="nameLabel">NAME</label>
+            <div class="requiredLabel" id="nameRequired">required</div>
+        </div>
         <input type="text" id="name" name="name" autofocus required><br>
 
-        <label class="required" for="email">EMAIL</label><br>
+        <div class="requiredDiv">
+            <label for="email" id="emailLabel">EMAIL</label>
+            <div class="requiredLabel" id="emailRequired">required</div>
+        </div>
         <input type="email" id="email" name="email" required><br>
 
         <label for="enquiry">NATURE OF ENQUIRY</label><br>
@@ -37,7 +47,10 @@
         <label for="message">MESSAGE</label><br>
         <textarea name="message" id="message" form="contactform"></textarea><br>
         
-        <label class="required" for="arithmetic">3 + 4 = ?</label><br>
+        <div class="requiredDiv">
+            <label for="arithmetic" id="arithmeticLabel">A + B = ?</label><br>
+            <div class="requiredLabel" id="arithmeticRequired">required</div>
+        </div>
         <input type="number" id="arithmetic" name="arithmetic" required><br>
 
         <input type="Submit" value="SUBMIT">
@@ -46,5 +59,6 @@
     <footer>
         200 Online Users - 24 Visited Users
     </footer>
+    <script src="./contact.js"></script>
 </body>
 </html>

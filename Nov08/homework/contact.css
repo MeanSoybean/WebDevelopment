@@ -1,11 +1,11 @@
-body {
-    width: 90%;
-    margin: auto;
-}
-
 .top {
     display: flex;
     justify-content: space-between;
+}
+
+body {
+    width: 90%;
+    margin: auto;
 }
 
 .menu {
@@ -37,10 +37,13 @@ label[for="arithmetic"] {
     padding-bottom: 1px;
 }
 
-.required::after {
-    content: "required";
-    color: orangered;
-    float: right;
+.requiredDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.requiredLabel {
+    color:orangered;
 }
 
 input[type="submit"] {

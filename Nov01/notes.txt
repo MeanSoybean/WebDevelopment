@@ -1,0 +1,17 @@
+i didn't go to class
+lol
+
+
+learned about html form stuff at
+contact.html exercise
+keywords:
+form
+input
+label
+required
+select
+textarea
+
+
+learned about flex display here:
+flexboxfroggy css

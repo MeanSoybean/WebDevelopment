@@ -1,0 +1,91 @@
+javascript can be run on the
+	client: to do rendering, animations, input validations
+	server: to generate HTML templating
+	
+this shares processing in a web app
+
+embedding javascript into html
+<script type="text/javascript">
+	raw javascript source can  go in here
+</script>
+
+you can also just use a source
+<script src="bla.js"></script>
+
+The browser will execute <script> as it loads the web page from top to bottom
+
+Putting script in head will run the script as soon as the page is loaded
+Putting script in body will run after head is done loading
+
+Event-Driven Programming with JavaScript:
+Some HTML objects have event handlers.
+onClick, onFocus, onHover, onBlur,
+onMouseOver, onMouseOut, onMouseDown, onMouseUp, 
+onLoad, onSubmit, onResize
+
+The following syntax:
+<tag eventHandler="javascript code goes here">
+will execute the javascript code string when eventHandler's event is fired
+on the given HTML tag
+
+For example:
+<input type="button" name="btnClickMe" value="OpenNewPage"
+		onClick="window.open('https://www.google.com');">
+
+Describes a button named btnClickMe with the display text OpenNewPage
+that will open Google's homepage when clicked on.
+
+How do we know window.open does that?
+See more about the Document Object Model API for opening a here: 
+https://developer.mozilla.org/en-US/docs/Web/API/Window/open
+
+
+You can also bind a function to an event of an object in the DOM in Javascript
+window.onload = MethodName
+
+
+the alert(string) function makes the browser send an alert
+this is helpful for printing messages
+
+
+Some DOM objects:
+window
+	The window object represents an open window in a browser.
+	If a document contain frames (<iframe> tags),
+	the browser creates one window object for the HTML document,
+	and one additional window object for each frame.
+	
+	<iframe> is used to embed another HTML document in the same HTML document
+	
+	properties
+		document, event, history, location, name, etc.
+	methods
+		alert
+		confirm
+		prompt
+document
+	The document object is the root node of the HTML document.
+	The document object is a property of the window object.
+	The document object is accessed with
+	window.document or just document
+	
+	properties
+		body
+		URL
+		childNodes[]
+		documentElement
+	
+	methods
+		close
+		open
+		createTextNode("text")
+		createElement("HTMLtag")
+		getElementById("id")
+history, link, form, frame, location, event
+
+
+DOM Nodes
+	the DOM is just a tree
+	
+JQuery!!!
+https://hackmd.io/@nndkhoa9/jquery#/
