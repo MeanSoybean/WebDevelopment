@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript</title>
+  <style>
+    .red {
+      color: crimson;
+    }
+
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const html = '<b>Hello Javascript</b>';
+    document.write(html);
+
+    let table = '<table border="1">';
+    for (let i = 1; i <= 9; i++) {
+      table += '<tr>';
+      for (let j = 1; j <= 10; j++) {
+        table += '<td>';
+        table += `${i} * ${j} = ${i * j}`;
+        table += '</td>';
+      }
+      table += '</tr>';
+    }
+    table += '</table>';
+    document.write(table);
+
+    const studentKen = {
+      name: 'Ken',
+      avg: 8.8
+    }
+
+    const studentRyu = {
+      name: 'Ryu',
+      agv: 9.1
+    }
+
+    const listOfStudents = [studentKen, studentRyu];
+    for (let i = 0; i < listOfStudents.length; i++) {
+      const cur = listOfStudents[i];
+      document.write(`name: ${cur.name}, avg: ${cur.avg} `);
+    }
+  </script>
+  <div>
+    <select name="selYOB" id="selYOB">
+      <script>
+        for (let i = 1970; i <= 2022; i++) {
+          document.write(`<option value="${i}">${i}</option>`);
+        }
+      </script>
+    </select>
+  </div>
+  <div id="content">Original Content</div>
+  <button type="button" onclick="changeContent()">Change content</button>
+
+  <div class="red">Red</div>
+  <div class="red">Red</div>
+  <div class="red">Red</div>
+  <button type="button" onclick="changeCSSClass()">Change CSSClass</button>
+  <button id="btnChangeCSSJQ" type="button">Change CSSClass using jQuery</button>
+
+  <script>
+    function changeContent() {
+      // alert('changed');
+      const content = '<i>New content from javascript</i>';
+      document.querySelector('#content').innerHTML = content;
+      document.querySelector('#content').style.border = '2px solid blue';
+    }
+
+    function changeCSSClass() {
+      const list = document.querySelectorAll('.red');
+      for (const listElement of list) {
+        listElement.classList.remove('red');
+        listElement.classList.add('blue');
+      }
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" crossorigin="anonymous"></script>
+  <script>
+    $('#btnChangeCSSJQ').on('click', function () {
+      $('.red').removeClass('red').addClass('blue');
+    });
+  </script>
+</body>
+</html>
