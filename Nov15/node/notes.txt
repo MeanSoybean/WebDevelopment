@@ -1,0 +1,2 @@
+https://nodejs.dev/en/learn/the-nodejs-event-emitter/
+https://fireship.io/courses/javascript/node-basics/
