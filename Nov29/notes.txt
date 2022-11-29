@@ -1,0 +1,192 @@
+Last week: Load data list from SQL db
+
+Finishing up on CRUD from last week
+Categories(ID [autoinc], CategoryName)
+we add a button to create by going to the index.hbs (handlebars) in the vwCategory folder
+we add a anchor button tag with sone black magic component name i don't really understand b4-button something
+in the anchor tag we put an image tag with a plus sign and then after it we give it Add Category text
+
+Note: it's best to change common appearance of elements by assigning them reusable classes which have already-defined CSS descriptions
+
+the add button hrefs to /admin/categories/add
+we already have the UI for the add screen
+we need to hook it up to the /admin/categories/add GET endpoint
+we open the controller at category.route.js
+
+router.get('/add', async function (req, res) {
+	res.render('vwCategory/add') // render vwCategory/add
+})
+
+Note: hbs (Handlebars) files look a lot like HTML files to me
+usually he likes to duplicate from his about.hbs html file because there's not much on it
+
+adding a form: duplicate the form HTML template from Bootstrap 4 at https://getbootstrap.com/docs/4.0/components/forms/
+
+he uses the class fa-4 check selector or something to get a button with an image
+i wonder what that is, probably was shown in a previous class
+
+he adds a b4-button-link
+basically a lot of râu ria to complete the Add page display-wise
+
+autofocus and placeholder
+
+buttons and inputs must be descendants of the same form tag for its info to be submittable
+now we have a <form method="post"> and no action attribute
+note: action attribute specifies the URL, NOT PAGE, to send data to. no action attribute means uses the current URL
+
+https://expressjs.com/en/guide/routing.html
+https://expressjs.com/en/starter/basic-routing.html
+
+we need to add a router.post in the category.route.js controller to handle at the /add screen
+router.post('/add', async function (req, res) {
+	console.log('abc')
+	res.render('vwCategory/add') // render vwCategory/add
+})
+
+TODO: understand how router.post and router.get work, does it need to receive a async function?
+
+
+
+now we need to pass the info from the form into express
+app.use(express.urlencoded({
+	extended: true
+}));
+this makes the request message's body to be whatever inputs have sent, each input's key is its name attribute (not ID)
+and change in the post request to console.log(req.body)
+
+
+let's look at knexjs cheat sheet for our insert query
+
+knex('users').insert({email: "h1@example.com"})
+
+you can also chain knex.insert's return result with returning() and then toString() it to print
+
+
+
+now in router.post:
+
+const category = {
+	CatName: req.body.txtCatName
+}
+const ret = await categoryService.add(category) // returns the ID of the added record
+console.log(ret)
+
+must have await when calling in async function?
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises
+
+now we make the R and U in CRUD, the Details and Edit-Me view of a given selected item
+get the item's ID
+
+first we make it so that "pressing the pencil on an item will take us to the edit page address"
+something like /admin/categories/edit?id={{CatId}}"
+{{}} is known as escape string template syntax, helps us not hard code URL or string values
+
+router.get('edit', async function(req, res) {
+	const id = req.query.id || 0;
+	const category = await.categoryService.findById(id);
+	if (category===null)
+		return res.redirect('/admin/categories');
+	res.render('vwCategory/edit',{
+		category: category
+	});
+})
+
+now we edit our category.service class
+
+async findById(id) {
+	const list = await db('categories').whereID('CatID', id);
+	if (list.length === 0) {
+		return null;
+	}
+	return list[0];
+}
+
+in our form, because we have two different buttons with two different behaviors: Saving and Update
+we will need to send them to different addresses (URL endpoints)
+for saving an edit: admin/categories/patch
+router.post('/patch', async function(req, res) {
+	await categoryService.patch(req.body);
+})
+
+in categoryService
+patch(entity) {
+	const id = entity.CatID
+	delete entity.CatID; // this deletes the CatID field from entity object
+	// this makes it so that we can pass entity into update and have it work because update won't try to set CatID anymore
+	
+	knex('categories').where({CatID: id}).update(entity);
+}
+
+for delete: admin/categories/del
+router.post('/del', async function(req, res) {
+	const id = req.body.CatID;
+	await categoryService.del(id);
+	res.redirect('admin/categories');
+})
+
+in categoryService
+del(id) {
+	knex('categories').where({CatID: id}).del()
+}
+
+
+
+input validation: alert/error user with js to get confirmation to delete
+
+
+
+
+////////
+view products sorted by category
+in product-user.route.js 
+router.get('/byCat/:id', async function(req, res) {
+	const id = req.params.id || 0;
+	const list = await productService.findByCatId(id);
+	res.render('vwProduct/byCat', {
+		products: list,
+		empty: list.length === 0
+	});
+})
+
+in product.service.js
+findByCatId(id) {
+	return db('products').where('CatID', id);
+}
+
+
+
+need to put images in
+folder structure:
+	public
+		imgs
+			sp
+				1
+					main.jpg
+					main_thumbs.jpg
+				2
+					...
+				...
+
+need to make these pictures accessible by exposing it via the controller in Express
+app.use('/public', express.static('public'))
+
+
+
+
+
+//// want to modify a value that would be put on view engine
+
+put a function in the view engine
+app.engine('hbs',engine({
+	helpers: {
+		format_number(val) {
+			return val - 20000;
+		}
+	}
+}
+
+
+to display data that's already html
+use triple {{{ }}}
+whereas {{ }} will reencode it to safe string (like < becomes &lt;)

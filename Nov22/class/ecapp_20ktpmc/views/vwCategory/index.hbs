@@ -1,0 +1,38 @@
+<div class="card">
+  <h4 class="card-header">
+    Categories
+  </h4>
+  {{#if this.empty}}
+  <div class="card-body">
+    <h5 class="card-title">
+      Không có dữ liệu!
+    </h5>
+  </div>
+  {{else}}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="text-center">#</th>
+        <th>Category</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.categories}}
+      <tr>
+        <td scope="row" class="text-center">{{CatID}}</td>
+        <td>{{CatName}}</td>
+        <td class="text-right">
+          <a class="btn btn-sm btn-outline-primary" href="#" role="button" title="Edit">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+  <div class="card-footer text-muted">
+    Footer
+  </div>
+</div>

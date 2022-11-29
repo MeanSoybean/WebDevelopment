@@ -7,6 +7,10 @@ Install [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwic
 Or install Node.js and then run this in your command line to globally install [http-server](https://www.npmjs.com/package/http-server):
 ```
 npm install --global http-server
+
+I also used 
+npm install knex -g
+npm install mysql2
 ```
 You can run http-server from whichever root folder you want.
 

@@ -1,0 +1,77 @@
+Last week: Load data list from SQL db
+
+Finishing up on CRUD from last week
+Categories(ID [autoinc], CategoryName)
+we add a button to create by going to the index.hbs (handlebars) in the vwCategory folder
+we add a anchor button tag with sone black magic component name i don't really understand b4-button something
+in the anchor tag we put an image tag with a plus sign and then after it we give it Add Category text
+
+Note: it's best to change common appearance of elements by assigning them reusable classes which have already-defined CSS descriptions
+
+the add button hrefs to /admin/categories/add
+we already have the UI for the add screen
+we need to hook it up to the /admin/categories/add GET endpoint
+we open the controller at category.route.js
+
+router.get('/add', async function (req, res) {
+	res.render('vwCategory/add') // render vwCategory/add
+})
+
+Note: hbs (Handlebars) files look a lot like HTML files to me
+usually he likes to duplicate from his about.hbs html file because there's not much on it
+
+adding a form: duplicate the form HTML template from Bootstrap 4 at https://getbootstrap.com/docs/4.0/components/forms/
+
+he uses the class fa-4 check selector or something to get a button with an image
+i wonder what that is, probably was shown in a previous class
+
+he adds a b4-button-link
+basically a lot of râu ria to complete the Add page display-wise
+
+autofocus and placeholder
+
+buttons and inputs must be descendants of the same form tag for its info to be submittable
+now we have a <form method="post"> and no action attribute
+note: action attribute specifies the URL, NOT PAGE, to send data to. no action attribute means uses the current URL
+
+https://expressjs.com/en/guide/routing.html
+https://expressjs.com/en/starter/basic-routing.html
+
+we need to add a router.post in the category.route.js controller to handle at the /add screen
+router.post('/add', async function (req, res) {
+	console.log('abc')
+	res.render('vwCategory/add') // render vwCategory/add
+})
+
+TODO: understand how router.post and router.get work, does it need to receive a async function?
+
+
+
+now we need to pass the info from the form into express
+app.use(express.urlencoded({
+	extended: true
+}));
+this makes the request message's body to be whatever inputs have sent, each input's key is its name attribute (not ID)
+and change in the post request to console.log(req.body)
+
+
+let's look at knexjs cheat sheet for our insert query
+
+knex('users').insert({email: "h1@example.com"})
+
+you can also chain knex.insert's return result with returning() and then toString() it to print
+
+
+
+now in router.post:
+
+const category = {
+	CatName: req.body.txtCatName
+}
+const ret = await categoryService.add(category) // returns the ID of the added record
+console.log(ret)
+
+must have await when calling in async function?
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises
+

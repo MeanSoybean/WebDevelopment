@@ -1,0 +1,22 @@
+this hellonode_20ktpmc project introduces us to a nodejs project
+
+console.log
+function
+format string
+const let
+importing
+export
+export default
+crypto-random-string
+
+
+
+how do i set up express?
+how do i use express in code?
+how do i use bootstrap?
+how do i set up knex?
+how do i use knex?
+https://devhints.io/knex
+
+do i use postgre or mysql or anything else in the demo project?
+https://medium.com/@tobie.tsuzuki/getting-started-with-node-js-express-and-knex-5640f595df98
